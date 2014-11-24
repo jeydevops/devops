@@ -6,6 +6,6 @@ var app=http.createServer(function (req, res) {
   //sets the right header and status code
   res.end('Hello World\n');
   //outputs string with line end symbol
-}).listen(1337, "nodejs-app1-ext");
+}).listen(80, "ec2-54-237-64-198.compute-1.amazonaws.com");
 //sets port and IP address of the server
-console.log('Server running at http://nodejs-app1-ext:1337/');
+console.log('Server running at http://ec2-54-237-64-198.compute-1.amazonaws.com:80/');
