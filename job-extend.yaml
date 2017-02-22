@@ -1,0 +1,31 @@
+- job:
+    name: test-jjb-extend
+    project-type: freestyle
+    defaults: global
+    disabled: false
+    display-name: 'Extendjjb-ScalrJenkinsTest'
+    concurrent: true
+    quiet-period: 5
+    workspace: \opt\workspace\jenkins\jobs\test-jjb-extend
+    block-downstream: false
+    block-upstream: false
+    triggers:
+       - pollscm:
+          cron: "40 23 * * *"
+          ignore-post-commit-hooks: True
+    builders:
+      - ScalrJenkins:
+          deployToAllServers: 'false'
+          deployUsingyaml: 'false'
+          deployToParticularServer: 'true'
+          deploymenttype: 'DeployToParticularServer'
+          env__Id__Server: '1'
+          farmName__Server: 'demo instances'
+          ServerID__Server: 'f99e54ab-31ad-417a-99ac-66bde3c6576c'
+          artifactUrl__Server: 'http://nexus/artifact/test.html'
+          scriptId__Server: '9'
+          yamlFileName: ''
+          env__Id__All__servers: ''
+          farmName__All__servers: ''
+          artifactUrl__All__servers: ''
+          scriptId__All__servers: ''
